@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/utils/app_strings.dart';
 import '../../../../core/utils/enums.dart';
 import '../cubit/todo_cubit.dart';
 import '../widgets/todo_filter_tabs.dart';
@@ -34,22 +35,22 @@ class _TodoPageState extends State<TodoPage> {
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
-        title: const Text("Edit Todo"),
+        title: const Text(AppStrings.editTodo),
         content: TextField(
           controller: editController,
-          decoration: const InputDecoration(hintText: "Update title"),
+          decoration: const InputDecoration(hintText: AppStrings.updateTitle),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text("Cancel"),
+            child: const Text(AppStrings.cancel),
           ),
           ElevatedButton(
             onPressed: () {
               cubit.editTodo(todo, editController.text);
               Navigator.pop(context);
             },
-            child: const Text("Update"),
+            child: const Text(AppStrings.update),
           ),
         ],
       ),
@@ -61,7 +62,7 @@ class _TodoPageState extends State<TodoPage> {
     final cubit = context.read<TodoCubit>();
 
     return Scaffold(
-      appBar: AppBar(title: const Text("To-Do App")),
+      appBar: AppBar(title: const Text(AppStrings.toDoApp)),
       body: BlocBuilder<TodoCubit, TodoState>(
         builder: (context, state) {
           return Padding(
@@ -75,7 +76,7 @@ class _TodoPageState extends State<TodoPage> {
                       child: TextField(
                         controller: _controller,
                         decoration: const InputDecoration(
-                          hintText: "Enter a new task...",
+                          hintText: AppStrings.enterNewTask,
                           border: OutlineInputBorder(),
                         ),
                       ),
@@ -86,7 +87,7 @@ class _TodoPageState extends State<TodoPage> {
                         cubit.addNewTodo(_controller.text);
                         _controller.clear();
                       },
-                      child: const Text("Add"),
+                      child: const Text(AppStrings.add),
                     ),
                   ],
                 ),
@@ -106,7 +107,7 @@ class _TodoPageState extends State<TodoPage> {
                   child: state.isLoading
                       ? const Center(child: CircularProgressIndicator())
                       : state.filteredTodos.isEmpty
-                      ? const Center(child: Text("No todos found"))
+                      ? const Center(child: Text(AppStrings.noToDoFound))
                       : ListView.builder(
                           itemCount: state.filteredTodos.length,
                           shrinkWrap: true,
