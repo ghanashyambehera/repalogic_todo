@@ -15,17 +15,21 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
+# Todo Video link
+https://github.com/user-attachments/assets/fe8df7c8-aad8-491f-843a-35f7a3ad1dfa
+
 # Flutter Clean Architecture App (BLoC/Cubit)
 
 A Flutter application built using **Clean Architecture** with **BLoC/Cubit** state management.  
 This project supports both **Android** and **iOS**.
 
+```text
 lib/
 ├── core/
 ├── features/
-│    ├── data/
-│    ├── domain/
-│    ├── presentation/
+│   ├── data/
+│   ├── domain/
+│   ├── presentation/
 ├── main.dart
 
 ## 📌 Requirements
@@ -50,6 +54,3 @@ Run on iOS
 Clean Build (If build issues occur)
  - flutter clean  
  - flutter pub get
-
-# Todo Video link
-https://github.com/user-attachments/assets/fe8df7c8-aad8-491f-843a-35f7a3ad1dfa
